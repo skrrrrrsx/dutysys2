@@ -1,7 +1,7 @@
 {
   "name": "duty-bot",
   "version": "1.0.0",
-  "description": "Professional Discord duty tracking bot for Roblox moderation teams",
+  "description": "proficucc",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
