@@ -5,9 +5,9 @@ const { formatDuration, errorEmbed } = require('../utils/helpers');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('dutystats')
-    .setDescription('View duty statistics for yourself or another mod')
+    .setDescription('nezd meg a sajat vagy masok duty statjat')
     .addUserOption(opt =>
-      opt.setName('user').setDescription('The user to check (leave blank for yourself)')
+      opt.setName('user').setDescription('a modi neve(hagyd üresen ha a sajátodat akarod)')
     ),
 
   async execute(interaction) {
@@ -16,7 +16,7 @@ module.exports = {
 
     if (!user) {
       return interaction.reply({
-        embeds: [errorEmbed(`<@${target.id}> is not registered in the system.`)],
+        embeds: [errorEmbed(`<@${target.id}> nincs bent a rendszerbe.`)],
         ephemeral: true,
       });
     }
@@ -29,9 +29,9 @@ module.exports = {
       .addFields(
         { name: '🔖 Discord', value: `<@${target.id}>`, inline: true },
         { name: '👤 Roblox', value: user.roblox_username, inline: true },
-        { name: '🟢 Status', value: stats.active ? '**On Duty**' : 'Off Duty', inline: true },
-        { name: '📋 Total Sessions', value: String(stats.sessions), inline: true },
-        { name: '⏱️ Total Time', value: formatDuration(stats.totalSeconds) || '0s', inline: true },
+        { name: '🟢 Jelenlegi status', value: stats.active ? '**On Duty**' : 'Off Duty', inline: true },
+        { name: '📋 Totál sessions', value: String(stats.sessions), inline: true },
+        { name: '⏱️ Totál idő', value: formatDuration(stats.totalSeconds) || '0s', inline: true },
       )
       .setTimestamp();
 
