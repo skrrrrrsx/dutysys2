@@ -115,7 +115,7 @@ module.exports = {
       const alreadyActive = db.getActiveDuty(targetId);
       if (alreadyActive) {
         return interaction.editReply({
-          embeds: [errorEmbed('You already have an active duty session!')],
+          embeds: [errorEmbed('Már van egy aktív duty sessionod!')],
           components: [],
         });
       }
