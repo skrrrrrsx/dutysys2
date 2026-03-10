@@ -5,13 +5,13 @@ const { formatDuration } = require('../utils/helpers');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('dutyleaderboard')
-    .setDescription('Show the top moderators by total duty time'),
+    .setDescription('Top modikat mutatja'),
 
   async execute(interaction) {
     const rows = db.getLeaderboard(10);
 
     if (!rows.length) {
-      return interaction.reply({ content: 'No duty data yet.', ephemeral: true });
+      return interaction.reply({ content: 'Nincs meg adat haver.', ephemeral: true });
     }
 
     const medals = ['🥇', '🥈', '🥉'];
