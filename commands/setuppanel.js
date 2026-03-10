@@ -10,11 +10,11 @@ const {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('setuppanel')
-    .setDescription('Post the permanent duty panel in a channel (admin only)')
+    .setDescription('calm down g')
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
     .addChannelOption(opt =>
       opt.setName('channel')
-        .setDescription('Channel to post the duty panel in')
+        .setDescription('szoba ahova bekuldod a cuccost')
         .setRequired(true)
     ),
 
