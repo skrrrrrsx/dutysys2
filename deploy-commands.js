@@ -23,8 +23,8 @@ const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN);
       { body: commands },
     );
 
-    console.log('✅ Slash commands deployed successfully!');
+    console.log('slash commandok elinditva sikeresen!');
   } catch (err) {
-    console.error('❌ Deploy failed:', err);
+    console.error('aha valami fos', err);
   }
 })();
