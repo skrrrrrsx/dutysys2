@@ -48,18 +48,18 @@ module.exports = {
 
       if (!dbUser) {
         return interaction.reply({
-          embeds: [errorEmbed('You are not registered. Ask an admin to register you first.')],
+          embeds: [errorEmbed('Nem vagy regisztralva szolj trixnek hogy intezkedjen')],
           ephemeral: true,
         });
       }
 
       const active = db.getActiveDuty(user.id);
       const action = active ? 'end' : 'start';
-      const confirmLabel = active ? '🔴 End Duty' : '🟢 Start Duty';
+      const confirmLabel = active ? 'Duty befejezése' : 'Duty elinditása';
       const confirmStyle = active ? ButtonStyle.Danger : ButtonStyle.Success;
       const statusText = active
-        ? `You are currently **on duty** since **${formatTime(active.start_time)}**.\nClick below to **end** your shift.`
-        : `You are currently **off duty**.\nClick below to **start** your shift.`;
+        ? `Jelenleg **on duty** -ba vagy ennyi ideje: **${formatTime(active.start_time)}**.\nKattints a **end** gombra hogy leallitsd.`
+        : `Jelenleg **off duty**-ba vagy.\nNyomj a **start** gombra hogy elinditsd a dutyt..`;
 
       const row = new ActionRowBuilder().addComponents(
         new ButtonBuilder()
@@ -77,7 +77,7 @@ module.exports = {
         embeds: [
           new EmbedBuilder()
             .setColor(active ? 0xe74c3c : 0x2ecc71)
-            .setTitle(active ? '🔴 You Are On Duty' : '⚪ You Are Off Duty')
+            .setTitle(active ? 'Jelenleg dutyba vagy' : 'Jelenleg off dutyba vagy')
             .setDescription(statusText)
             .addFields({ name: '👤 Roblox', value: dbUser.roblox_username, inline: true }),
         ],
@@ -131,9 +131,9 @@ module.exports = {
         embeds: [
           new EmbedBuilder()
             .setColor(0x2ecc71)
-            .setTitle('✅ Duty Started')
-            .setDescription(`You are now **on duty** as **${dbUser.roblox_username}**. Stay safe! 🛡️`)
-            .addFields({ name: '🕐 Started at', value: formatTime(session.start_time), inline: true }),
+            .setTitle('Duty elindítva!')
+            .setDescription(`Jelenleg **on duty** ba vagy ilyen néven: **${dbUser.roblox_username}**. meno vagy.`)
+            .addFields({ name: '🕐 elinditva ekkor.', value: formatTime(session.start_time), inline: true }),
         ],
         components: [],
       });
@@ -144,7 +144,7 @@ module.exports = {
       const session = db.endDuty(targetId);
       if (!session) {
         return interaction.editReply({
-          embeds: [errorEmbed('No active duty session found.')],
+          embeds: [errorEmbed('Nem talalhato aktiv session')],
           components: [],
         });
       }
@@ -157,12 +157,12 @@ module.exports = {
         embeds: [
           new EmbedBuilder()
             .setColor(0xe74c3c)
-            .setTitle('✅ Duty Ended')
-            .setDescription(`You are now **off duty**. Good work! 👋`)
+            .setTitle('Duty leallítva')
+            .setDescription(`Jelenleg **off duty** -ba vagy👋`)
             .addFields(
-              { name: '🕐 Started', value: formatTime(session.start_time), inline: true },
-              { name: '🕐 Ended', value: formatTime(session.end_time), inline: true },
-              { name: '⏱️ Duration', value: formatDuration(session.end_time - session.start_time), inline: true },
+              { name: '🕐 Elinditva', value: formatTime(session.start_time), inline: true },
+              { name: '🕐 Leallitva', value: formatTime(session.end_time), inline: true },
+              { name: '⏱️ Időtartam', value: formatDuration(session.end_time - session.start_time), inline: true },
             ),
         ],
         components: [],
