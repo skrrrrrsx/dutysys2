@@ -5,13 +5,13 @@ const { successEmbed, errorEmbed } = require('../utils/helpers');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('register')
-    .setDescription('Link a Discord user to their Roblox username')
+    .setDescription('discord/roblox acc link')
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
     .addUserOption(opt =>
-      opt.setName('user').setDescription('The Discord user to register').setRequired(true)
+      opt.setName('user').setDescription('a discord user amit regisztralni akarsz').setRequired(true)
     )
     .addStringOption(opt =>
-      opt.setName('roblox').setDescription('Their Roblox username').setRequired(true)
+      opt.setName('roblox').setDescription('a roblox neve').setRequired(true)
     ),
 
   async execute(interaction) {
@@ -19,7 +19,7 @@ module.exports = {
     const roblox = interaction.options.getString('roblox').trim();
 
     if (!roblox) {
-      return interaction.reply({ embeds: [errorEmbed('Roblox username cannot be empty.')], ephemeral: true });
+      return interaction.reply({ embeds: [errorEmbed('roblox user nem lehet üres.')], ephemeral: true });
     }
 
     db.registerUser(target.id, roblox);
