@@ -44,14 +44,14 @@ function formatDate(unixSeconds) {
 function dutyStartEmbed(robloxUsername, discordId, session) {
   return new EmbedBuilder()
     .setColor(0x2ecc71) // green
-    .setTitle('🟢 Duty Started')
+    .setTitle('Duty elindítva!')
     .addFields(
       { name: '👤 Roblox', value: robloxUsername, inline: true },
       { name: '🔖 Discord', value: `<@${discordId}>`, inline: true },
-      { name: '📅 Date', value: formatDate(session.start_time), inline: true },
-      { name: '🕐 Start', value: formatTime(session.start_time), inline: true },
-      { name: '🕐 End', value: '—', inline: true },
-      { name: '⏱️ Duration', value: '—', inline: true },
+      { name: '📅 Dátum', value: formatDate(session.start_time), inline: true },
+      { name: '🕐 Duty kezdete', value: formatTime(session.start_time), inline: true },
+      { name: '🕐 Duty Vége', value: '—', inline: true },
+      { name: '⏱️ időtartam', value: '—', inline: true },
     )
     .setFooter({ text: `Session #${session.id}` })
     .setTimestamp(session.start_time * 1000);
@@ -61,14 +61,14 @@ function dutyEndEmbed(robloxUsername, discordId, session) {
   const duration = session.end_time - session.start_time;
   return new EmbedBuilder()
     .setColor(0xe74c3c) // red
-    .setTitle('🔴 Duty Ended')
+    .setTitle('Duty leállítva!')
     .addFields(
       { name: '👤 Roblox', value: robloxUsername, inline: true },
       { name: '🔖 Discord', value: `<@${discordId}>`, inline: true },
-      { name: '📅 Date', value: formatDate(session.start_time), inline: true },
-      { name: '🕐 Start', value: formatTime(session.start_time), inline: true },
-      { name: '🕐 End', value: formatTime(session.end_time), inline: true },
-      { name: '⏱️ Duration', value: formatDuration(duration), inline: true },
+      { name: '📅 Dátum', value: formatDate(session.start_time), inline: true },
+      { name: '🕐 Duty kezdete', value: formatTime(session.start_time), inline: true },
+      { name: '🕐 Duty vége', value: formatTime(session.end_time), inline: true },
+      { name: '⏱️ időtartam', value: formatDuration(duration), inline: true },
     )
     .setFooter({ text: `Session #${session.id}` })
     .setTimestamp(session.end_time * 1000);
