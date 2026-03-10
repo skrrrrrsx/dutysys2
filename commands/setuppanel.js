@@ -23,12 +23,12 @@ module.exports = {
 
     const embed = new EmbedBuilder()
       .setColor(0x5865F2)
-      .setTitle('🛡️ Duty Panel')
+      .setTitle('Duty Panel')
       .setDescription(
         'Use the button below to **start** or **stop** your duty shift.\n\n' +
         '> Kattints a **Duty elindítása** gombra hogy elkezd a dutyt\n' +
         '> Kattints a **Duty befejezése** gombra hogy abbahagyd a dutyt\n\n' +
-        'Your session will be automatically logged.'
+        'Duty sessionod automatan elsavel(talan)'
       )
       .setFooter({ text: 'ddd' });
 
