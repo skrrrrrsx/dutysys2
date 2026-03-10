@@ -30,7 +30,7 @@ module.exports = {
         '> Kattints a **Duty befejezése** gombra hogy abbahagyd a dutyt\n\n' +
         'Duty sessionod automatan elsavel(talan)'
       )
-      .setFooter({ text: 'ddd' });
+      .setFooter({ text: 'Csak lazába' });
 
     const row = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
