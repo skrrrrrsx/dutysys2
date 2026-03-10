@@ -25,7 +25,7 @@ module.exports = {
       .setColor(0x5865F2)
       .setTitle('Duty Panel')
       .setDescription(
-        'Use the button below to **start** or **stop** your duty shift.\n\n' +
+        'Használd a gombot itt lent, hogy **elindítsd** vagy **leaállítsd** a dutyt!.\n\n' +
         '> Kattints a **Duty elindítása** gombra hogy elkezd a dutyt\n' +
         '> Kattints a **Duty befejezése** gombra hogy abbahagyd a dutyt\n\n' +
         'Duty sessionod automatan elsavel(talan)'
