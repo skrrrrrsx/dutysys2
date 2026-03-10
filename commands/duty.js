@@ -12,7 +12,7 @@ require('dotenv').config();
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('duty')
-    .setDescription('Toggle your duty status on/off'),
+    .setDescription('duty ki/be kapcsolasa'),
 
   async execute(interaction) {
     const discordId = interaction.user.id;
@@ -20,7 +20,7 @@ module.exports = {
 
     if (!user) {
       return interaction.reply({
-        embeds: [errorEmbed('You are not registered. Ask an admin to run `/register` for you first.')],
+        embeds: [errorEmbed('Nem vagy regisztrálva kérd meg trixet hogy csinálja meg')],
         ephemeral: true,
       });
     }
@@ -45,8 +45,8 @@ module.exports = {
     const row = new ActionRowBuilder().addComponents(confirmBtn, cancelBtn);
 
     const statusMsg = active
-      ? `You are currently **on duty** since **${formatTime(active.start_time)}**.\nPress the button to **end** your duty.`
-      : `You are currently **off duty**.\nPress the button to **start** your duty.`;
+      ? `Dutyba vagy ennyi ideje: **${formatTime(active.start_time)}**.\n nyomd meg a gombot, hogy leállítsd a dutyd..`
+      : `Nem vagy dutyba.\nNyomd meg a gombot, hogy elindítsd a **dutyt**.`;
 
     await interaction.reply({
       embeds: [
