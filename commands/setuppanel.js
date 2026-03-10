@@ -26,23 +26,23 @@ module.exports = {
       .setTitle('🛡️ Duty Panel')
       .setDescription(
         'Use the button below to **start** or **stop** your duty shift.\n\n' +
-        '> 🟢 Press **Go On Duty** to clock in\n' +
-        '> 🔴 Press **Go Off Duty** to clock out\n\n' +
+        '> Kattints a **Duty elindítása** gombra hogy elkezd a dutyt\n' +
+        '> Kattints a **Duty befejezése** gombra hogy abbahagyd a dutyt\n\n' +
         'Your session will be automatically logged.'
       )
-      .setFooter({ text: 'You must be registered to use this panel.' });
+      .setFooter({ text: 'ddd' });
 
     const row = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setCustomId('panel_duty_toggle')
-        .setLabel('🟢 Go On Duty')
+        .setLabel('Duty elindítása')
         .setStyle(ButtonStyle.Success)
     );
 
     await channel.send({ embeds: [embed], components: [row] });
 
     await interaction.reply({
-      content: `✅ Duty panel posted in ${channel}.`,
+      content: `Duty panel elkuldve itt: ${channel}.`,
       ephemeral: true,
     });
   },
