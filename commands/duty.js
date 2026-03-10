@@ -29,7 +29,7 @@ module.exports = {
 
     // ── Build confirmation button ────────────────────────────────────────────
     const action = active ? 'end' : 'start';
-    const label = active ? '🔴 End Duty' : '🟢 Start Duty';
+    const label = active ? 'Duty leállítása' : 'Duty elindítása';
     const style = active ? ButtonStyle.Danger : ButtonStyle.Success;
 
     const confirmBtn = new ButtonBuilder()
@@ -52,7 +52,7 @@ module.exports = {
       embeds: [
         new EmbedBuilder()
           .setColor(active ? 0xe74c3c : 0x2ecc71)
-          .setTitle(active ? '🔴 Currently On Duty' : '⚪ Currently Off Duty')
+          .setTitle(active ? 'Jelenleg On Duty' : 'Jelenleg Off Duty')
           .setDescription(statusMsg)
           .addFields({ name: '👤 Roblox Username', value: user.roblox_username }),
       ],
