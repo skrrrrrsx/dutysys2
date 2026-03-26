@@ -118,6 +118,7 @@ function getLeaderboard(limit = 10) {
 }
 
 module.exports = {
+  db,
   registerUser,
   getUser,
   getActiveDuty,
